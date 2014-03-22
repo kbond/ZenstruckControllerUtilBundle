@@ -1,0 +1,26 @@
+{
+    "name": "zenstruck/controller-util-bundle",
+    "description": "Symfony2 Bundle for zenstruck/controller-util",
+    "keywords": ["controller", "symfony2", "bundle"],
+    "homepage": "https://github.com/kbond/ZenstruckControllerUtilBundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kevin Bond",
+            "email": "kevinbond@gmail.com"
+        }
+    ],
+    "require": {
+        "zenstruck/controller-util": "dev-master",
+        "symfony/framework-bundle" : "~2.3"
+    },
+    "require-dev": {
+        "symfony/twig-bundle": "~2.3",
+        "jms/serializer-bundle": "~0.13"
+    },
+    "autoload": {
+        "psr-0": { "Zenstruck\\ControllerUtilBundle": "" }
+    },
+    "target-dir": "Zenstruck/ControllerUtilBundle"
+}
