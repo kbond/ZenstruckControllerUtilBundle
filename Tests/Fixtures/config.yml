@@ -1,0 +1,15 @@
+services:
+    test.controller:
+        class: Zenstruck\ControllerUtilBundle\Tests\Fixtures\TestController
+
+framework:
+    secret:     xxxxxxxxxx
+    router:     { resource: "%kernel.root_dir%/routing.yml" }
+    templating: { engines: ['twig'] }
+    test: ~
+    session:
+        storage_id: session.storage.mock_file
+
+twig:
+    paths:
+        "%kernel.root_dir%": Test

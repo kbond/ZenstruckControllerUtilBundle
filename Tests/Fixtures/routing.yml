@@ -1,0 +1,21 @@
+forward:
+    path:     /forward
+    defaults: { _controller: test.controller:forwardAction }
+
+redirect:
+    path:     /redirect
+    defaults: { _controller: test.controller:redirectAction }
+
+flast_redirect:
+    path:     /flash-redirect
+    defaults: { _controller: test.controller:flashRedirectAction }
+
+redirect_endpoint:
+    path:     /redirect-endpoint
+    defaults: { _controller: test.controller:redirectEndpointAction }
+
+view:
+    path:     /view.{_format}
+    defaults: { _controller: test.controller:viewAction, _format: html }
+    requirements:
+        _format: html|json|xml
