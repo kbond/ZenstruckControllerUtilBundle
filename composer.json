@@ -2,7 +2,7 @@
     "name": "zenstruck/controller-util-bundle",
     "description": "Symfony2 Bundle for zenstruck/controller-util",
     "keywords": ["controller", "symfony2", "bundle"],
-    "homepage": "https://github.com/kbond/ZenstruckControllerUtilBundle",
+    "homepage": "http://zenstruck.com/projects/ZenstruckControllerUtilBundle",
     "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
