@@ -11,7 +11,7 @@
     <services>
         <service id="zenstruck_controller_util.serializer_view_listener" class="%zenstruck_controller_util.serializer_view_listener.class%">
             <argument type="service" id="jms_serializer.serializer" />
-            <tag name="kernel.event_listener" event="kernel.view" method="onKernelView" priority="10" />
+            <tag name="kernel.event_listener" event="kernel.view" method="onKernelView" priority="5" />
         </service>
     </services>
 </container>
