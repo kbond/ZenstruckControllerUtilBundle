@@ -12,7 +12,7 @@
         }
     ],
     "require": {
-        "zenstruck/controller-util": "dev-master",
+        "zenstruck/controller-util": "~0.1",
         "symfony/framework-bundle": "~2.3"
     },
     "require-dev": {
