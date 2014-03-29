@@ -7,3 +7,26 @@
 [![Latest Stable Version](https://poser.pugx.org/zenstruck/controller-util-bundle/v/stable.png)](https://packagist.org/packages/zenstruck/controller-util-bundle)
 [![Latest Unstable Version](https://poser.pugx.org/zenstruck/controller-util-bundle/v/unstable.png)](https://packagist.org/packages/zenstruck/controller-util-bundle)
 [![License](https://poser.pugx.org/zenstruck/controller-util-bundle/license.png)](https://packagist.org/packages/zenstruck/controller-util-bundle)
+
+This bundle integrates the [zenstruck/controller-util](https://github.com/kbond/ControllerUtil) library
+into your Symfony2 project.  **For usage, see its documentation.**
+
+## Installation
+
+Require this bundle with composer:
+
+    composer require zenstruck/controller-util-bundle:~0.1
+
+Then enable it in your kernel:
+
+```php
+// app/AppKernel.php
+public function registerBundles()
+{
+    $bundles = array(
+        //...
+        new Zenstruck\ControllerUtilBundle\ZenstruckControllerUtilBundle(),
+        //...
+    );
+}
+```
