@@ -9,6 +9,7 @@
         <parameter key="zenstruck_controller_util.redirect_listener.class">Zenstruck\ControllerUtil\EventListener\RedirectListener</parameter>
         <parameter key="zenstruck_controller_util.templating_view_listener.class">Zenstruck\ControllerUtil\EventListener\TemplatingViewListener</parameter>
         <parameter key="zenstruck_controller_util.has_flashes_listener.class">Zenstruck\ControllerUtil\EventListener\HasFlashesListener</parameter>
+        <parameter key="zenstruck_controller_util.param_converter_listener.class">Zenstruck\ControllerUtil\EventListener\ParamConverterListener</parameter>
     </parameters>
 
     <services>
@@ -26,6 +27,9 @@
         <service id="zenstruck_controller_util.has_flashes_listener" class="%zenstruck_controller_util.has_flashes_listener.class%">
             <argument type="service" id="session.flash_bag" />
             <tag name="kernel.event_listener" event="kernel.view" method="onKernelView" priority="10" />
+        </service>
+        <service id="zenstruck_controller_util.param_converter_listener" class="%zenstruck_controller_util.param_converter_listener.class%">
+            <tag name="kernel.event_listener" event="kernel.controller" method="onKernelController" />
         </service>
     </services>
 </container>

@@ -16,6 +16,7 @@ class ZenstruckControllerUtilExtension extends Extension
     {
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('listeners.xml');
+        $loader->load('param_converters.xml');
 
         $bundles = $container->getParameter('kernel.bundles');
 
