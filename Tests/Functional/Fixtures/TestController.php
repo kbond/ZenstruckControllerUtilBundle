@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenstruck\ControllerUtilBundle\Tests\Fixtures;
+namespace Zenstruck\ControllerUtilBundle\Tests\Functional\Fixtures;
 
 use Symfony\Component\HttpFoundation\Response;
 use Zenstruck\ControllerUtil\FlashRedirect;

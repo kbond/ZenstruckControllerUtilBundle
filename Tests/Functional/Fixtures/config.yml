@@ -1,6 +1,6 @@
 services:
     test.controller:
-        class: Zenstruck\ControllerUtilBundle\Tests\Fixtures\TestController
+        class: Zenstruck\ControllerUtilBundle\Tests\Functional\Fixtures\TestController
 
 framework:
     secret:     xxxxxxxxxx

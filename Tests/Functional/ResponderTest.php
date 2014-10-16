@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenstruck\ControllerUtilBundle\Tests;
+namespace Zenstruck\ControllerUtilBundle\Tests\Functional;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 /**
  * @author Kevin Bond <kevinbond@gmail.com>
  */
-class FunctionalTest extends WebTestCase
+class ResponderTest extends WebTestCase
 {
     public function testForward()
     {
