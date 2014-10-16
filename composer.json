@@ -16,9 +16,7 @@
         "symfony/framework-bundle": "~2.3"
     },
     "require-dev": {
-        "symfony/twig-bundle": "~2.3",
-        "symfony/finder": "~2.3",
-        "symfony/browser-kit": "~2.3",
+        "symfony/symfony": "~2.3",
         "jms/serializer-bundle": "~0.13",
         "matthiasnoback/symfony-dependency-injection-test": "~0.4"
     },

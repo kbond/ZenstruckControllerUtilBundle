@@ -1,21 +1,37 @@
 forward:
     path:     /forward
-    defaults: { _controller: test.controller:forwardAction }
+    defaults: { _controller: responder.test.controller:forwardAction }
 
 redirect:
     path:     /redirect
-    defaults: { _controller: test.controller:redirectAction }
+    defaults: { _controller: responder.test.controller:redirectAction }
 
 flast_redirect:
     path:     /flash-redirect
-    defaults: { _controller: test.controller:flashRedirectAction }
+    defaults: { _controller: responder.test.controller:flashRedirectAction }
 
 redirect_endpoint:
     path:     /redirect-endpoint
-    defaults: { _controller: test.controller:redirectEndpointAction }
+    defaults: { _controller: responder.test.controller:redirectEndpointAction }
 
 view:
     path:     /view.{_format}
-    defaults: { _controller: test.controller:viewAction, _format: html }
+    defaults: { _controller: responder.test.controller:viewAction, _format: html }
     requirements:
         _format: html|json|xml
+
+session:
+    path:     /session
+    defaults: { _controller: param_converter.test.controller:sessionAction }
+
+flash_bag:
+    path:     /flash_bag
+    defaults: { _controller: param_converter.test.controller:flashBagAction }
+
+form_factory:
+    path:     /form_factory
+    defaults: { _controller: param_converter.test.controller:formFactoryAction }
+
+security_context:
+    path:     /security_context
+    defaults: { _controller: param_converter.test.controller:SecurityContextAction }
