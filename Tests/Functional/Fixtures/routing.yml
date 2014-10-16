@@ -34,4 +34,12 @@ form_factory:
 
 security_context:
     path:     /security_context
-    defaults: { _controller: param_converter.test.controller:SecurityContextAction }
+    defaults: { _controller: param_converter.test.controller:securityContextAction }
+
+mapped_exception:
+    path:     /mapped_exception
+    defaults: { _controller: mapped_exception.test.controller:mappedExceptionAction }
+
+non_mapped_exception:
+    path:     /non_mapped_exception
+    defaults: { _controller: mapped_exception.test.controller:nonMappedExceptionAction }
