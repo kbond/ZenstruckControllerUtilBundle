@@ -2,7 +2,9 @@
 
 use JMS\SerializerBundle\JMSSerializerBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
+use Symfony\Bundle\MonologBundle\MonologBundle;
 use Symfony\Bundle\TwigBundle\TwigBundle;
+use Symfony\Bundle\SecurityBundle\SecurityBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
 use Zenstruck\ControllerUtilBundle\ZenstruckControllerUtilBundle;
@@ -19,6 +21,8 @@ class TestKernel extends Kernel
     {
         return array(
             new FrameworkBundle(),
+            new SecurityBundle(),
+            new MonologBundle(),
             new TwigBundle(),
             new JMSSerializerBundle(),
             new ZenstruckControllerUtilBundle()

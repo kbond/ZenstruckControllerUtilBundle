@@ -1,0 +1,38 @@
+services:
+    responder.test.controller:
+        class: Zenstruck\ControllerUtilBundle\Tests\Functional\Fixtures\Controller\ResponderTestController
+    param_converter.test.controller:
+        class: Zenstruck\ControllerUtilBundle\Tests\Functional\Fixtures\Controller\ParamConverterTestController
+    mapped_exception.test.controller:
+            class: Zenstruck\ControllerUtilBundle\Tests\Functional\Fixtures\Controller\ExceptionMapTestController
+
+zenstruck_controller_util:
+    exception_map:
+        InvalidArgumentException: 503
+
+monolog:
+    handlers:
+        null:
+            type: "null"
+
+framework:
+    secret:     xxxxxxxxxx
+    router:     { resource: "%kernel.root_dir%/routing.yml" }
+    templating: { engines: ['twig'] }
+    form: ~
+    test: ~
+    session:
+        storage_id: session.storage.mock_file
+
+twig:
+    paths:
+        "%kernel.root_dir%": Test
+
+security:
+    providers:
+        in_memory:
+            memory: ~
+
+    firewalls:
+        default:
+            anonymous: ~

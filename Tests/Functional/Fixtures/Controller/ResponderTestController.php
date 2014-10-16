@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenstruck\ControllerUtilBundle\Tests\Fixtures;
+namespace Zenstruck\ControllerUtilBundle\Tests\Functional\Fixtures\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Zenstruck\ControllerUtil\FlashRedirect;
@@ -11,11 +11,11 @@ use Zenstruck\ControllerUtil\Template;
 /**
  * @author Kevin Bond <kevinbond@gmail.com>
  */
-class TestController
+class ResponderTestController
 {
     public function forwardAction()
     {
-        return new Forward('test.controller:forwardEndpointAction');
+        return new Forward('responder.test.controller:forwardEndpointAction');
     }
 
     public function forwardEndpointAction()
