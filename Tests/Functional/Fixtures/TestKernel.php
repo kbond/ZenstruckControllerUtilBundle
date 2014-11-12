@@ -25,7 +25,7 @@ class TestKernel extends Kernel
             new MonologBundle(),
             new TwigBundle(),
             new JMSSerializerBundle(),
-            new ZenstruckControllerUtilBundle()
+            new ZenstruckControllerUtilBundle(),
         );
     }
 

@@ -28,7 +28,7 @@ class ParamConverterCompilerPassTest extends AbstractCompilerPassTestCase
             'zenstruck_controller_util.param_converter_listener',
             'addParamConverter',
             array(
-                new Reference('my_converter')
+                new Reference('my_converter'),
             )
         );
     }

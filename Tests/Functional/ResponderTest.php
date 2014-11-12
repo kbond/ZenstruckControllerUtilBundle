@@ -72,7 +72,7 @@ class ResponderTest extends WebTestCase
         return array(
             array('/view', "This is a rendered view with data: foo\n", 'text/html; charset=UTF-8'),
             array('/view.json', '"foo"', 'application/json'),
-            array('/view.xml', "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<result><![CDATA[foo]]></result>\n", 'text/xml; charset=UTF-8')
+            array('/view.xml', "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<result><![CDATA[foo]]></result>\n", 'text/xml; charset=UTF-8'),
         );
     }
 

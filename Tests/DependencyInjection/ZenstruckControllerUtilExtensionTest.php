@@ -59,8 +59,8 @@ class ZenstruckControllerUtilExtensionTest extends AbstractExtensionTestCase
     {
         $this->load(array(
                 'exception_map' => array(
-                    'InvalidArgumentException' => 500
-                )
+                    'InvalidArgumentException' => 500,
+                ),
             ));
         $this->compile();
 
@@ -74,8 +74,8 @@ class ZenstruckControllerUtilExtensionTest extends AbstractExtensionTestCase
     {
         $this->load(array(
                 'exception_map' => array(
-                    'InvalidArgumentException' => 'foo'
-                )
+                    'InvalidArgumentException' => 'foo',
+                ),
             ));
         $this->compile();
     }
@@ -88,8 +88,8 @@ class ZenstruckControllerUtilExtensionTest extends AbstractExtensionTestCase
     {
         $this->load(array(
                 'exception_map' => array(
-                    'Foo\Bar\Baz' => 500
-                )
+                    'Foo\Bar\Baz' => 500,
+                ),
             ));
         $this->compile();
     }
