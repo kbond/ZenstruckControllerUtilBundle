@@ -24,6 +24,10 @@ session:
     path:     /session
     defaults: { _controller: param_converter.test.controller:sessionAction }
 
+invoke_session:
+    path:     /invoke_session
+    defaults: { _controller: param_converter.test.controller }
+
 flash_bag:
     path:     /flash_bag
     defaults: { _controller: param_converter.test.controller:flashBagAction }

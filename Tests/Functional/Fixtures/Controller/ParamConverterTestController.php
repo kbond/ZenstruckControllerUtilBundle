@@ -13,6 +13,11 @@ use Symfony\Component\Security\Core\SecurityContext;
  */
 class ParamConverterTestController
 {
+    public function __invoke(Session $session)
+    {
+        return new Response(get_class($session));
+    }
+
     public function sessionAction(Session $session)
     {
         return new Response(get_class($session));
