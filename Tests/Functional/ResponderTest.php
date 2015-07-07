@@ -67,6 +67,24 @@ class ResponderTest extends WebTestCase
         $this->assertSame($expectedContentType, $response->headers->get('content-type'));
     }
 
+    public function testNullView()
+    {
+        $client = static::createClient();
+        $client->request('GET', '/null-view');
+        $response = $client->getResponse();
+        $this->assertSame(204, $response->getStatusCode());
+        $this->assertSame('', $response->getContent());
+    }
+
+    public function testNull()
+    {
+        $client = static::createClient();
+        $client->request('GET', '/null');
+        $response = $client->getResponse();
+        $this->assertSame(204, $response->getStatusCode());
+        $this->assertSame('', $response->getContent());
+    }
+
     public function viewDataProvider()
     {
         return array(

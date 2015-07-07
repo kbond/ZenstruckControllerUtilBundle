@@ -7,6 +7,7 @@ use Zenstruck\ControllerUtil\FlashRedirect;
 use Zenstruck\ControllerUtil\Forward;
 use Zenstruck\ControllerUtil\Redirect;
 use Zenstruck\ControllerUtil\Template;
+use Zenstruck\ControllerUtil\View;
 
 /**
  * @author Kevin Bond <kevinbond@gmail.com>
@@ -41,5 +42,15 @@ class ResponderTestController
     public function viewAction()
     {
         return new Template('@Test/view.html.twig', 'foo');
+    }
+
+    public function nullViewAction()
+    {
+        return new View(null);
+    }
+
+    public function nullAction()
+    {
+        return null;
     }
 }

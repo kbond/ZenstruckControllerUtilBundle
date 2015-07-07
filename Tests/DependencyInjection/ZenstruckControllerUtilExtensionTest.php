@@ -29,13 +29,44 @@ class ZenstruckControllerUtilExtensionTest extends AbstractExtensionTestCase
         $this->assertFalse($this->container->has('zenstruck_controller_util.form_factory_param_converter'));
     }
 
-    public function testJmsSerializerBundle()
+    public function testDisableAll()
+    {
+        $this->load(array(
+            'forward_listener' => false,
+            'redirect_listener' => false,
+            'templating_view_listener' => false,
+            'no_content_view_listener' => false,
+            'has_flashes_listener' => false,
+            'param_converter_listener' => false,
+        ));
+        $this->compile();
+
+        $this->assertFalse($this->container->has('zenstruck_controller_util.forward_listener'));
+        $this->assertFalse($this->container->has('zenstruck_controller_util.redirect_listener'));
+        $this->assertFalse($this->container->has('zenstruck_controller_util.templating_view_listener'));
+        $this->assertFalse($this->container->has('zenstruck_controller_util.no_content_view_listener'));
+        $this->assertFalse($this->container->has('zenstruck_controller_util.has_flashes_listener'));
+        $this->assertFalse($this->container->has('zenstruck_controller_util.param_converter_listener'));
+        $this->assertFalse($this->container->has('zenstruck_controller_util.flash_bag_param_converter'));
+        $this->assertFalse($this->container->has('zenstruck_controller_util.session_param_converter'));
+    }
+
+    public function testJmsSerializerBundleEnabledByDefault()
     {
         $this->setParameter('kernel.bundles', array('JMSSerializerBundle' => 'JMSSerializerBundle'));
         $this->load();
         $this->compile();
 
         $this->assertTrue($this->container->has('zenstruck_controller_util.serializer_view_listener'));
+    }
+
+    public function testDisableSerializer()
+    {
+        $this->setParameter('kernel.bundles', array('JMSSerializerBundle' => 'JMSSerializerBundle'));
+        $this->load(['serializer_view_listener' => false]);
+        $this->compile();
+
+        $this->assertFalse($this->container->has('zenstruck_controller_util.serializer_view_listener'));
     }
 
     public function testFormFactoryEnabled()

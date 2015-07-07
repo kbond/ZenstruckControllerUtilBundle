@@ -20,6 +20,14 @@ view:
     requirements:
         _format: html|json|xml
 
+null_view:
+    path:     /null-view
+    defaults: { _controller: responder.test.controller:nullViewAction }
+
+null:
+    path:     /null
+    defaults: { _controller: responder.test.controller:nullAction }
+
 session:
     path:     /session
     defaults: { _controller: param_converter.test.controller:sessionAction }
