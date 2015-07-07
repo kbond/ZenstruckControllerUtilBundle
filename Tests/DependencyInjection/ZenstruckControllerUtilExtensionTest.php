@@ -63,7 +63,7 @@ class ZenstruckControllerUtilExtensionTest extends AbstractExtensionTestCase
     public function testDisableSerializer()
     {
         $this->setParameter('kernel.bundles', array('JMSSerializerBundle' => 'JMSSerializerBundle'));
-        $this->load(['serializer_view_listener' => false]);
+        $this->load(array('serializer_view_listener' => false));
         $this->compile();
 
         $this->assertFalse($this->container->has('zenstruck_controller_util.serializer_view_listener'));
