@@ -5,7 +5,7 @@ namespace Zenstruck\ControllerUtilBundle\DependencyInjection;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
-use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 class ZenstruckControllerUtilExtension extends ConfigurableExtension
 {
@@ -14,30 +14,76 @@ class ZenstruckControllerUtilExtension extends ConfigurableExtension
      */
     protected function loadInternal(array $mergedConfig, ContainerBuilder $container)
     {
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('listeners.xml');
-        $loader->load('param_converters/session.xml');
-        $loader->load('param_converters/flash_bag.xml');
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 
-        if ($container->hasParameter('security.context.class')) {
+        $this->registerDefaultListeners($mergedConfig, $loader);
+        $this->registerNoContentViewListener($mergedConfig, $loader, $container);
+        $this->registerSerializerViewListener($mergedConfig, $loader, $container);
+        $this->registerParamConverterListener($mergedConfig, $loader, $container);
+        $this->registerConvertExceptionListener($mergedConfig, $loader, $container);
+    }
+
+    private function registerParamConverterListener(array $mergedConfig, XmlFileLoader $loader, ContainerBuilder $container)
+    {
+        $config = $mergedConfig['param_converter_listener'];
+
+        if (!$config['enabled']) {
+            return;
+        }
+
+        $loader->load('param_converter_listener.xml');
+
+        if ($config['session']) {
+            $loader->load('param_converters/session.xml');
+        }
+
+        if ($config['flash_bag']) {
+            $loader->load('param_converters/flash_bag.xml');
+        }
+
+        if ($config['security_context'] && $container->hasParameter('security.context.class')) {
             $loader->load('param_converters/security_context.xml');
         }
 
-        if ($container->hasParameter('form.factory.class')) {
+        if ($config['form_factory'] && $container->hasParameter('form.factory.class')) {
             $loader->load('param_converters/form_factory.xml');
         }
-
-        $bundles = $container->getParameter('kernel.bundles');
-
-        if (isset($bundles['JMSSerializerBundle'])) {
-            $loader->load('serializer_listener.xml');
-        }
-
-        $this->registerConvertExceptionListener($mergedConfig['exception_map'], $loader, $container);
     }
 
-    private function registerConvertExceptionListener(array $exceptionMap, Loader\XmlFileLoader $loader, ContainerBuilder $container)
+    private function registerNoContentViewListener(array $mergedConfig, XmlFileLoader $loader, ContainerBuilder $container)
     {
+        if (!$mergedConfig['no_content_view_listener']['enabled']) {
+            return;
+        }
+
+        $loader->load('no_content_view_listener.xml');
+        $container->setParameter('zenstruck_controller_util.no_content_view_listener.allow_null', $mergedConfig['no_content_view_listener']['allow_null']);
+    }
+
+    private function registerDefaultListeners(array $mergedConfig, XmlFileLoader $loader)
+    {
+        foreach (array('forward_listener', 'redirect_listener', 'templating_view_listener', 'has_flashes_listener') as $listener) {
+            if (false === $mergedConfig[$listener]) {
+                continue;
+            }
+
+            $loader->load(sprintf('%s.xml', $listener));
+        }
+    }
+
+    private function registerSerializerViewListener(array $mergedConfig, XmlFileLoader $loader, ContainerBuilder $container)
+    {
+        $bundles = $container->getParameter('kernel.bundles');
+
+        if (isset($bundles['JMSSerializerBundle']) && $mergedConfig['serializer_view_listener']) {
+            $loader->load('serializer_view_listener.xml');
+        }
+    }
+
+    private function registerConvertExceptionListener(array $mergedConfig, XmlFileLoader $loader, ContainerBuilder $container)
+    {
+        $exceptionMap = $mergedConfig['exception_map'];
+
         if (!count($exceptionMap)) {
             return;
         }

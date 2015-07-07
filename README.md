@@ -29,3 +29,35 @@ public function registerBundles()
     );
 }
 ```
+
+## Full Default Configuration
+
+```yaml
+zenstruck_controller_util:
+
+    # When true, only enabled if JMSSerializerBundle is registered.
+    serializer_listener:  true
+    forward_listener:     true
+    redirect_listener:    true
+    templating_view_listener:  true
+    no_content_view_listener:
+        enabled:              true
+
+        # When true, controllers can return just null, otherwise an empty view is required.
+        allow_null:           true
+    has_flashes_listener:  true
+    param_converter_listener:
+        enabled:              true
+        session:              true
+        flash_bag:            true
+
+        # When true, only enabled if security is enabled.
+        security_context:     true
+
+        # When true, only enabled if forms are enabled.
+        form_factory:         true
+    exception_map:
+
+        # Prototype
+        exception_class:      ~
+```

@@ -18,6 +18,7 @@ class ZenstruckControllerUtilExtensionTest extends AbstractExtensionTestCase
         $this->assertTrue($this->container->has('zenstruck_controller_util.forward_listener'));
         $this->assertTrue($this->container->has('zenstruck_controller_util.redirect_listener'));
         $this->assertTrue($this->container->has('zenstruck_controller_util.templating_view_listener'));
+        $this->assertTrue($this->container->has('zenstruck_controller_util.no_content_view_listener'));
         $this->assertTrue($this->container->has('zenstruck_controller_util.has_flashes_listener'));
         $this->assertTrue($this->container->has('zenstruck_controller_util.param_converter_listener'));
         $this->assertTrue($this->container->has('zenstruck_controller_util.flash_bag_param_converter'));
