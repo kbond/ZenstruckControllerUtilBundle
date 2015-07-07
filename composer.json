@@ -12,13 +12,12 @@
         }
     ],
     "require": {
-        "zenstruck/controller-util": "~0.4",
+        "zenstruck/controller-util": "~0.5",
         "symfony/framework-bundle": "~2.3"
     },
     "require-dev": {
         "symfony/symfony": "~2.3",
         "jms/serializer-bundle": "~0.13",
-        "symfony/monolog-bundle": "*",
         "matthiasnoback/symfony-dependency-injection-test": "~0.4"
     },
     "autoload": {

@@ -10,11 +10,6 @@ zenstruck_controller_util:
     exception_map:
         InvalidArgumentException: 503
 
-monolog:
-    handlers:
-        null:
-            type: "null"
-
 framework:
     secret:     xxxxxxxxxx
     router:     { resource: "%kernel.root_dir%/routing.yml" }

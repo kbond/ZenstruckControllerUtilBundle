@@ -22,7 +22,6 @@ class TestKernel extends Kernel
         return array(
             new FrameworkBundle(),
             new SecurityBundle(),
-            new MonologBundle(),
             new TwigBundle(),
             new JMSSerializerBundle(),
             new ZenstruckControllerUtilBundle(),
