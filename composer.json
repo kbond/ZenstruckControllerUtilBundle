@@ -12,13 +12,13 @@
         }
     ],
     "require": {
-        "zenstruck/controller-util": "~0.5",
-        "symfony/framework-bundle": "~2.3"
+        "zenstruck/controller-util": "^0.5.2",
+        "symfony/framework-bundle": "~2.3|~3.0"
     },
     "require-dev": {
-        "symfony/symfony": "~2.3",
+        "symfony/symfony": "~2.3|~3.0",
         "jms/serializer-bundle": "~0.13",
-        "matthiasnoback/symfony-dependency-injection-test": "~0.4"
+        "matthiasnoback/symfony-dependency-injection-test": "^0.7.4"
     },
     "autoload": {
         "psr-4": { "Zenstruck\\ControllerUtilBundle\\": "" }
